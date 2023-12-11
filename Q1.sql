@@ -31,7 +31,7 @@ gross_salary NUMBER;
 net_salary NUMBER;
 BEGIN
 SELECT salary INTO gross_salary
-FROM employees
+FROM EMPLOYEES
 WHERE employee_id=emp_id;
 
 net_salary := gross_salary * 0.95;
@@ -52,7 +52,7 @@ gross_salary NUMBER;
 net_salary NUMBER;
 BEGIN
 SELECT salary INTO gross_salary
-FROM employees
+FROM EMPLOYEES
 WHERE employee_id=emp_id;
 
 net_salary := gross_salary * 0.95;
@@ -75,3 +75,4 @@ net_salary := calc_net_salary(2);
 dbms_output.put_line('Net salary: '|| net_salary);
 END;
 /
+
