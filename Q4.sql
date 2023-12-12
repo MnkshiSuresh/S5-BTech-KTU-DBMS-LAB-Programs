@@ -1,6 +1,6 @@
 --Create a PL/SQL package that consist of a procedure to add a new employee and a function to calculate annual bonus.
 
-CREATE TABLE employee(id NUMBER PRIMARY KEY,name VARCHAR2,salary NUMBER);
+CREATE TABLE employee(id NUMBER PRIMARY KEY,name VARCHAR2(20),salary NUMBER);
 
 CREATE OR REPLACE PACKAGE emp_package AS
 PROCEDURE add_emp(v_id IN NUMBER,v_name IN VARCHAR2,v_salary IN NUMBER);
@@ -20,7 +20,7 @@ FUNCTION annual_bonus(v_id IN NUMBER) RETURN NUMBER IS
 base_salary NUMBER;
 annual_bonus NUMBER;
 BEGIN
-SELECT salary INTO base_salary FROM employee WHERE v_id=id;
+SELECT salary INTO base_salary FROM employee WHERE id=v_id;
 annual_bonus := base_salary * 0.15;
 RETURN annual_bonus;
 
