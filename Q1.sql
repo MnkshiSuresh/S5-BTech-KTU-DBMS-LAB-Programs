@@ -47,25 +47,6 @@ END calc_net_salary;
 /
 
 
-CREATE OR REPLACE FUNCTION calc_net_salary(emp_id IN NUMBER) RETURN NUMBER IS
-gross_salary NUMBER;
-net_salary NUMBER;
-BEGIN
-SELECT salary INTO gross_salary
-FROM EMPLOYEES
-WHERE employee_id=emp_id;
-
-net_salary := gross_salary * 0.95;
-
-RETURN net_salary;
-
-EXCEPTION
-WHEN NO_DATA_FOUND THEN
-RETURN NULL;
-WHEN OTHERS THEN
-RETURN NULL;
-END calc_net_salary;
-/
 
 EXEC new_salary(2);
 DECLARE
